@@ -1,0 +1,710 @@
+/* =========================
+SMART SKY
+========================= */
+#sky{
+position:relative;
+height:240px;
+transition:background 8s linear;
+background:linear-gradient(
+to bottom,
+#6db7ff 0%,
+#8ecaff 25%,
+#6aa4e8 45%,
+#3f6fb3 65%,
+#1e3a6d 85%,
+#0f172a 100%
+);
+
+overflow:hidden;
+}
+#sky::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:80px;
+
+background:linear-gradient(
+to bottom,
+rgba(15,23,42,0),
+rgba(15,23,42,1)
+);
+}
+
+/* matahari */
+
+#sun{
+position:absolute;
+width:70px;
+
+left:0;
+top:0;
+
+filter:drop-shadow(0 0 25px #facc15);
+transition:all 2s linear;
+}
+
+/* bulan */
+
+#moon{
+position:absolute;
+width:60px;
+border-radius:50%;
+
+filter:
+drop-shadow(0 0 8px rgba(255,255,255,0.6))
+drop-shadow(0 0 20px rgba(255,255,255,0.3));
+
+opacity:0.9;
+}
+
+/* =========================
+CLOUD LAYERS
+========================= */
+
+.cloud{
+position:absolute;
+width:220%;
+height:200px; /* dinaikkan supaya awan tidak terpotong */
+
+background:url('../assets/img/cloud.webp') repeat-x;
+background-size:520px;
+mix-blend-mode:screen;
+opacity:0;
+filter:blur(0.5px);
+}
+
+/* awan belakang */
+
+.cloud-back{
+top:30px;
+animation:cloudRight 180s linear infinite;
+opacity:0.4;
+}
+
+/* awan tengah */
+
+.cloud-mid{
+top:60px;
+animation:cloudLeft 120s linear infinite;
+opacity:0.7;
+}
+
+/* awan depan */
+
+.cloud-front{
+top:90px;
+animation:cloudRight 70s linear infinite;
+opacity:0.9;
+}
+
+/* arah kiri */
+
+@keyframes cloudLeft{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+/* arah kanan */
+
+@keyframes cloudRight{
+0%{transform:translateX(-50%)}
+100%{transform:translateX(0)}
+}
+
+/* bintang */
+
+#stars{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+}
+#rain{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+pointer-events:none;
+filter:brightness(0.6);
+}
+
+.raindrop{
+position:absolute;
+width:2px;
+height:12px;
+background:rgba(255,255,255,0.6);
+animation:rainFall linear infinite;
+}
+
+@keyframes rainFall{
+
+0%{transform:translateY(-100px)}
+100%{transform:translateY(300px)}
+
+}
+
+/* =========================
+BODY
+========================= */
+
+body{
+font-family:Arial;
+margin:0;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.logo{
+width:90px;
+margin-top:20px;
+}
+.hero{
+padding:40px 20px;
+}
+
+#jam-wita{
+font-size:22px;
+margin-top:10px;
+color:#facc15;
+}
+
+/* =========================
+SERVER STATUS
+========================= */
+
+.server-status{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:10px;
+}
+
+#server-lamp{
+width:12px;
+height:12px;
+border-radius:50%;
+background:gray;
+}
+
+.server-online{
+background:#22c55e;
+}
+
+.server-offline{
+background:#ef4444;
+}
+
+/* =========================
+DASHBOARD
+========================= */
+
+.dashboard{
+padding:40px 20px;
+}
+
+.app-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+max-width:500px;
+margin:auto;
+}
+
+.app-card{
+background:white;
+color:black;
+padding:20px;
+border-radius:15px;
+text-decoration:none;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+}
+
+.app-card img{
+width:40px;
+}
+
+.login-menu{
+display:none;
+margin-top:20px;
+}
+
+.login-menu a{
+display:block;
+background:#0ea5e9;
+color:white;
+padding:10px;
+margin:6px auto;
+width:200px;
+border-radius:10px;
+text-decoration:none;
+}
+
+
+/* =========================
+BERITA
+========================= */
+
+#berita{
+padding:40px 20px;
+}
+
+#berita-list{
+display:grid;
+gap:20px;
+}
+
+.berita-item{
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+}
+
+/* =========================
+PETA
+========================= */
+
+#peta iframe{
+width:100%;
+height:350px;
+border:0;
+}
+
+
+
+/* =========================
+SCROLL ANIMATION
+========================= */
+
+.fade-left{
+opacity:0;
+transform:translateX(-80px);
+transition:all .8s ease;
+}
+
+.fade-right{
+opacity:0;
+transform:translateX(80px);
+transition:all .8s ease;
+}
+
+.fade-up{
+opacity:0;
+transform:translateY(80px);
+transition:all .8s ease;
+}
+
+.show{
+opacity:1;
+transform:translateX(0) translateY(0);
+}
+
+/* =========================
+RESPONSIVE HP
+========================= */
+
+@media(max-width:600px){
+
+.app-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.slides img{
+height:auto;
+}
+.banner-slider::-webkit-scrollbar{
+display:none;
+}
+}
+#lightning{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background:white;
+opacity:0;
+}
+
+.flash{
+animation:lightningFlash 0.3s ease;
+}
+
+@keyframes lightningFlash{
+
+0%{opacity:0}
+40%{opacity:0.9}
+100%{opacity:0}
+
+}
+/* =========================
+WEATHER WIDGET
+========================= */
+
+#weather-widget{
+position:absolute;
+top:12px;
+left:12px;
+
+background:rgba(0,0,0,0.35);
+padding:10px 14px;
+
+border-radius:12px;
+
+backdrop-filter:blur(6px);
+
+color:white;
+font-family:Arial;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.4);
+
+z-index:20;
+
+min-width:110px;
+}
+
+/* nama desa */
+#desa-name{
+font-size:13px;
+font-weight:600;
+opacity:0.85;
+}
+
+/* kondisi */
+#weather-text{
+font-size:13px;
+margin-top:2px;
+opacity:0.9;
+}
+
+/* suhu */
+#temperature{
+font-size:22px;
+font-weight:bold;
+margin-top:3px;
+
+color:#facc15;
+
+text-shadow:0 2px 6px rgba(0,0,0,0.5);
+}
+/* area logo */
+
+#logo-area{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+margin-top:20px;
+}
+
+/* logo desa */
+
+#logo{
+width:90px;
+}
+
+/* burung kalteng */
+
+#burung-kalteng{
+width:80px;
+opacity:0.95;
+}
+
+
+/* =========================
+BANNER SLIDER
+========================= */
+
+.banner-slider{
+width:100%;
+height:460px;
+position:relative;
+overflow:hidden;
+
+/* samakan dengan background web */
+
+background:#0f172a;
+}
+
+.slides{
+position:relative;
+width:100%;
+height:100%;
+}
+
+.slides img{
+position:absolute;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:contain;
+
+opacity:0;
+transition:opacity 1s ease;
+}
+
+.slides img.active{
+opacity:1;
+}
+
+/* =========================
+SLIDER DOTS
+========================= */
+
+.dots{
+position:absolute;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:8px;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,0.4);
+cursor:pointer;
+transition:0.3s;
+}
+
+.dot.active{
+background:white;
+transform:scale(1.2);
+}/* =========================
+SLIDER ARROW
+========================= */
+
+.slider-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:28px;   /* lebih kecil */
+color:white;
+cursor:pointer;
+user-select:none;
+z-index:5;
+transition:0.2s;
+opacity:0.7;
+}
+
+/* posisi */
+
+.slider-arrow.left{
+left:15px;
+}
+
+.slider-arrow.right{
+right:15px;
+}
+
+/* hover halus */
+
+.slider-arrow:hover{
+opacity:1;
+transform:translateY(-50%) scale(1.15);
+}
+/* =========================
+AMBULANCE BUTTON
+========================= */
+
+#call-ambulance{
+
+background:linear-gradient(45deg,#dc2626,#ef4444);
+
+color:white;
+
+border:none;
+
+padding:14px 28px;
+
+border-radius:12px;
+
+font-size:18px;
+
+font-weight:700;
+
+text-transform:uppercase;
+
+cursor:pointer;
+
+box-shadow:
+0 0 10px rgba(239,68,68,0.7),
+0 0 25px rgba(239,68,68,0.4);
+
+animation:ambulancePulse 1.6s infinite;
+
+}
+
+/* tombol WA disembunyikan dulu */
+
+#wa-btn{
+
+display:none;
+
+margin-top:15px;
+
+background:#16a34a;
+
+color:white;
+
+padding:12px 26px;
+
+border-radius:10px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+display:none;
+
+}
+
+/* animasi denyut */
+
+@keyframes ambulancePulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.06);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+/* =========================
+CCTV
+========================= */
+
+#cctv{
+padding:40px 20px;
+text-align:center;
+}
+
+#cctv img{
+
+width:100%;
+max-width:420px;
+
+border-radius:12px;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
+
+margin-top:20px;
+
+}
+/* =========================
+AMBULANCE DRIVE
+========================= */
+
+#ambulance{
+
+position:fixed;
+
+bottom:20px;
+
+/* mulai dari luar kanan layar */
+
+right:-150px;
+
+z-index:50;
+
+animation:ambulanceRun 12s linear infinite;
+
+}
+
+/* ukuran gambar */
+
+#ambulance img{
+
+width:90px;
+
+filter:drop-shadow(0 0 8px red);
+
+}
+
+/* animasi jalan */
+
+@keyframes ambulanceRun{
+
+0%{
+right:-150px;
+}
+
+100%{
+right:110%;
+}
+
+}
+/* =========================
+PETA DESA
+========================= */
+
+#peta{
+
+padding:40px 20px;
+
+text-align:center;
+
+}
+
+#peta iframe{
+
+width:100%;
+
+max-width:500px;
+
+height:320px;
+
+border:0;
+
+border-radius:18px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.35);
+
+overflow:hidden;
+
+margin-top:15px;
+
+}
+
+/* tombol buka maps */
+
+#peta a{
+
+display:inline-block;
+
+margin-top:12px;
+
+background:#2563eb;
+
+color:white;
+
+padding:10px 18px;
+
+border-radius:10px;
+
+text-decoration:none;
+
+font-weight:600;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+
+}
