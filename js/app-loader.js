@@ -168,7 +168,7 @@ function loadBanners(){
 
 No file chosen
 
-Hapus
+
     /* jalankan saat halaman pertama load */
     loadBanners();
         
