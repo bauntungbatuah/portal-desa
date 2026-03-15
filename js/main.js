@@ -1,25 +1,46 @@
-/* ======================
-JAM WITA
-====================== */
-
 function updateJam(){
 
 const now = new Date()
 
-const jam = now.getHours().toString().padStart(2,"0")
+let hours = now.getHours()
 const menit = now.getMinutes().toString().padStart(2,"0")
 const detik = now.getSeconds().toString().padStart(2,"0")
+
+let waktu = ""
+
+if(hours < 4){
+waktu = "Malam"
+}
+else if(hours < 6){
+waktu = "Subuh"
+}
+else if(hours < 11){
+waktu = "Pagi"
+}
+else if(hours < 15){
+waktu = "Siang"
+}
+else if(hours < 18){
+waktu = "Sore"
+}
+else{
+waktu = "Malam"
+}
+
+let jam12 = hours % 12
+if(jam12 === 0) jam12 = 12
 
 const jamBox = document.getElementById("jam-wita")
 
 if(jamBox){
-jamBox.innerText = jam + ":" + menit + ":" + detik + " WITA"
+jamBox.innerText = jam12 + ":" + menit + ":" + detik + " " + waktu
 }
 
 }
 
 setInterval(updateJam,1000)
 updateJam()
+
 
 /* ======================
 LOGIN MENU
