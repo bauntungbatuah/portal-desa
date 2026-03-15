@@ -21,8 +21,6 @@ jamBox.innerText = jam + ":" + menit + ":" + detik + " WITA"
 setInterval(updateJam,1000)
 updateJam()
 
-
-
 /* ======================
 LOGIN MENU
 ====================== */
@@ -30,7 +28,7 @@ LOGIN MENU
 const loginBtn = document.querySelector(".login-btn")
 const loginMenu = document.getElementById("login-menu")
 
-if(loginBtn){
+if(loginBtn && loginMenu){
 
 loginBtn.onclick = () => {
 
@@ -42,8 +40,6 @@ loginMenu.style.display === "block"
 }
 
 }
-
-
 
 /* ======================
 SMART SKY
@@ -66,7 +62,6 @@ const time = hour + minute/60
 
 const skyWidth = sky.offsetWidth
 
-
 /* SIANG */
 
 if(time >= 6 && time <= 18){
@@ -83,7 +78,6 @@ sun.style.left = x + "px"
 sun.style.top = y + "px"
 
 }
-
 
 /* MALAM */
 
@@ -102,8 +96,6 @@ moon.style.right = "60px"
 setInterval(updateSky,10000)
 updateSky()
 
-
-
 /* ======================
 WARNA LANGIT
 ====================== */
@@ -117,7 +109,6 @@ const hour = now.getHours()
 const minute = now.getMinutes()
 
 const time = hour + minute/60
-
 
 /* SUBUH */
 
@@ -169,8 +160,6 @@ sky.style.background =
 setInterval(updateSkyColor,60000)
 updateSkyColor()
 
-
-
 /* ======================
 BANNER PRO
 ====================== */
@@ -183,8 +172,6 @@ let auto
 
 if(banners.length && dotsContainer){
 
-/* buat dots */
-
 banners.forEach((_,i)=>{
 
 const dot = document.createElement("div")
@@ -193,8 +180,10 @@ dot.classList.add("dot")
 if(i===0) dot.classList.add("active")
 
 dot.addEventListener("click",()=>{
+
 index = i
 showBanner()
+
 })
 
 dotsContainer.appendChild(dot)
@@ -206,6 +195,8 @@ dotsContainer.appendChild(dot)
 const dots = document.querySelectorAll(".dot")
 
 function showBanner(){
+
+if(!banners[index] || !dots[index]) return
 
 banners.forEach(img=>img.classList.remove("active"))
 dots.forEach(dot=>dot.classList.remove("active"))
@@ -228,14 +219,16 @@ showBanner()
 }
 
 function startAuto(){
+
+if(banners.length){
 auto = setInterval(nextBanner,5000)
+}
+
 }
 
 function stopAuto(){
 clearInterval(auto)
 }
-
-
 
 /* SWIPE HP */
 
@@ -259,9 +252,15 @@ nextBanner()
 }
 
 if(endX - startX > 50){
+
 index--
-if(index < 0) index = banners.length-1
+
+if(index < 0){
+index = banners.length-1
+}
+
 showBanner()
+
 }
 
 startAuto()
@@ -271,6 +270,7 @@ startAuto()
 }
 
 startAuto()
+
 /* ======================
 SLIDER ARROW CONTROL
 ====================== */
@@ -305,6 +305,7 @@ showBanner()
 })
 
 }
+
 /* ======================
 AMBULANCE SOUND
 ====================== */
@@ -312,7 +313,7 @@ AMBULANCE SOUND
 const ambulanceBtn = document.getElementById("ambulance-btn")
 const ambulanceSound = document.getElementById("ambulanceSound")
 
-if(ambulanceBtn){
+if(ambulanceBtn && ambulanceSound){
 
 ambulanceBtn.addEventListener("click",function(e){
 
@@ -335,111 +336,133 @@ const callBtn = document.getElementById("call-ambulance")
 const waBtn = document.getElementById("wa-btn")
 const sound = document.getElementById("ambulanceSound")
 
-if(callBtn){
+if(callBtn && sound){
 
 callBtn.addEventListener("click",()=>{
 
 sound.currentTime = 0
 sound.play()
 
+if(waBtn){
 waBtn.style.display = "inline-block"
+}
 
 })
 
 }
+
 /* =========================
 POPUP LOGIN ADMIN
 ========================= */
 
-const logoAdmin = document.getElementById("logoAdmin");
-const adminPopup = document.getElementById("adminPopup");
-const closePopup = document.getElementById("closePopup");
-const banamaSong = document.getElementById("banamaSong");
+const logoAdmin = document.getElementById("logoAdmin")
+const adminPopup = document.getElementById("adminPopup")
+const closePopup = document.getElementById("closePopup")
+const banamaSong = document.getElementById("banamaSong")
 
-if(logoAdmin){
+if(logoAdmin && adminPopup){
+
 logoAdmin.onclick = function(){
 
-adminPopup.style.display = "flex";
+adminPopup.style.display = "flex"
 
 if(banamaSong){
-banamaSong.currentTime = 0;
-banamaSong.play();
+banamaSong.currentTime = 0
+banamaSong.play()
 }
 
-};
 }
 
-if(closePopup){
+}
+
+if(closePopup && adminPopup){
+
 closePopup.onclick = function(){
 
-adminPopup.style.display = "none";
+adminPopup.style.display = "none"
 
 if(banamaSong){
-banamaSong.pause();
+banamaSong.pause()
 }
 
-};
+}
+
 }
 
 /* =========================
 POPUP AMBULANCE
 ========================= */
 
-const callAmbulance = document.getElementById("call-ambulance");
-const ambulancePopup = document.getElementById("ambulancePopup");
-const closeAmbulance = document.getElementById("closeAmbulance");
+const callAmbulance = document.getElementById("call-ambulance")
+const ambulancePopup = document.getElementById("ambulancePopup")
+const closeAmbulance = document.getElementById("closeAmbulance")
 
-if(callAmbulance){
+if(callAmbulance && ambulancePopup){
+
 callAmbulance.addEventListener("click", function(){
-ambulancePopup.style.display = "flex";
-});
+ambulancePopup.style.display = "flex"
+})
+
 }
 
-if(closeAmbulance){
+if(closeAmbulance && ambulancePopup){
+
 closeAmbulance.addEventListener("click", function(){
-ambulancePopup.style.display = "none";
-});
+ambulancePopup.style.display = "none"
+})
+
 }
 
+/* ======================
+ADMIN SECRET CLICK
+====================== */
 
-let clickTitle = 0;
+let clickTitle = 0
 
-const title = document.getElementById("desaTitle");
+const title = document.getElementById("desaTitle")
+
+if(title){
 
 title.addEventListener("click", function(){
 
-clickTitle++;
+clickTitle++
 
 if(clickTitle === 5){
+window.location.href = "admin/admin.html"
+}
 
-window.location.href = "admin/admin.html";
+})
 
 }
 
-});
+/* ======================
+LOAD TEXT CONFIG
+====================== */
 
 function loadPortalText(){
 
+if(!APP_CONFIG) return
+
 document.getElementById("desaTitle").innerText =
-APP_CONFIG.desaTitle;
+APP_CONFIG.desaTitle
 
 document.getElementById("desaSlogan").innerHTML =
-APP_CONFIG.slogan1 + "<br>" + APP_CONFIG.slogan2;
+APP_CONFIG.slogan1 + "<br>" + APP_CONFIG.slogan2
 
 document.getElementById("ambulanceTitle").innerText =
-APP_CONFIG.ambulanceTitle;
+APP_CONFIG.ambulanceTitle
 
 document.getElementById("ambulanceText").innerText =
-APP_CONFIG.ambulanceText;
+APP_CONFIG.ambulanceText
 
 document.getElementById("footerText").innerHTML =
 APP_CONFIG.footer1 + "<br>" +
 APP_CONFIG.footer2 + "<br>" +
-APP_CONFIG.footer3;
+APP_CONFIG.footer3
 
 document.getElementById("copyright").innerText =
-APP_CONFIG.copyright;
+APP_CONFIG.copyright
 
 }
 
-loadPortalText();
+loadPortalText()
