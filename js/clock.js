@@ -26,7 +26,8 @@ function updateClock() {
 
     const waktuText = jam12 + ":" + minutes + ":" + seconds + " " + waktu;
 
-    document.getElementById("clock").innerText = waktuText;
+    document.getElementById("jam-wita").innerText = waktuText;
 }
 
+updateClock(); // tampilkan langsung
 setInterval(updateClock, 1000);
