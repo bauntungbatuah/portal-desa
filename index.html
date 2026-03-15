@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portal Desa Banama</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/ambulance.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- SMART SKY -->
+<div id="sky">
+
+<div id="weather-widget">
+<div id="weather-text">Memuat...</div>
+<div id="temperature">--°C</div>
+</div>
+
+<img src="assets/img/sun.webp" id="sun">
+<img src="assets/img/moon.webp" id="moon">
+
+<div class="cloud cloud-back"></div>
+<div class="cloud cloud-mid"></div>
+<div class="cloud cloud-front"></div>
+
+<div id="rain"></div>
+<div id="lightning"></div>
+<div id="stars"></div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="hero fade-up">
+
+<a href="#" id="logoAdmin">
+<img src="assets/img/logo.png" id="logo" width="150">
+</a>
+
+<h1 id="desaTitle"></h1>
+
+<p id="desaSlogan"></p>
+
+<div id="jam-wita"></div>
+
+<div class="server-status">
+    <span id="server-lamp" class="server-offline"></span>
+    <span id="server-text">Cek server...</span>
+</div>
+
+</header>
+
+<!-- DASHBOARD -->
+
+<section class="dashboard fade-up">
+
+<h2 class="section-title">
+Layanan Desa
+</h2>
+
+<div class="app-grid" id="appGrid"></div>
+
+
+<div id="login-menu" class="login-menu">
+
+<a href="https://desa.banama.my.id/siteman">
+Login Admin
+</a>
+
+<a href="https://desa.banama.my.id/layanan">
+Login Warga
+</a>
+
+</div>
+
+</section>
+
+<!-- AMBULANCE -->
+
+<section class="ambulance-section fade-up">
+
+<div id="ambulance-banner">
+
+    <h3 id="ambulanceTitle"></h3>
+    <p id="ambulanceText"></p>
+
+<button id="call-ambulance">
+Hubungi Supir Ambulans
+</button>
+
+<audio id="ambulanceSound">
+<source src="assets/sound/siren.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+</section>
+
+<!-- BANNER -->
+
+<section class="banner-slider">
+
+    <div class="slides" id="bannerSlides"></div>
+
+<div class="slider-arrow left">&#10094;</div>
+<div class="slider-arrow right">&#10095;</div>
+
+<div class="dots"></div>
+
+</section>
+
+<!-- BERITA -->
+
+<section id="berita" class="fade-up">
+
+<h2 class="section-title">
+Berita Desa
+</h2>
+
+<div id="berita-list"></div>
+
+</section>
+
+<!-- CCTV -->
+
+<section id="cctv" class="fade-up">
+
+<h2 class="section-title">
+CCTV Halaman Kantor Desa
+</h2>
+
+<img src="assets/img/cctv-placeholder.jpg">
+
+</section>
+
+<!-- PETA -->
+
+<section id="peta" class="fade-up">
+
+<h2 class="section-title">
+Peta Desa Banama
+</h2>
+
+<iframe
+src="https://www.google.com/maps?q=Banama,Kapuas,Kalimantan%20Tengah&output=embed">
+</iframe>
+
+</section>
+
+<footer class="fade-up">
+
+    <p id="footerText"></p>
+    <p id="copyright"></p>
+
+</footer>
+
+<div id="adminPopup" class="popup-admin">
+
+<div class="popup-box">
+
+<h3>⚠ Server Tidak Aktif</h3>
+
+<p>
+Server Sistem Informasi Desa saat ini tidak aktif.<br>
+Jika sangat mendesak silakan hubungi admin desa.
+</p>
+
+<div class="popup-buttons">
+
+<a href="https://wa.me/6285248555550" class="wa-admin">
+<i class="fa-brands fa-whatsapp"></i> Hubungi Admin
+</a>
+
+<button class="close-popup" id="closePopup">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="ambulancePopup" class="popup-admin">
+
+<div class="popup-box">
+
+<h3>🚑 Layanan Ambulans Desa</h3>
+
+<p>
+Jika membutuhkan ambulans desa,<br>
+silakan hubungi supir ambulans melalui WhatsApp.
+</p>
+
+<div class="popup-buttons">
+
+<a href="https://wa.me/6285248555550" class="wa-admin">
+<i class="fa-brands fa-whatsapp"></i> Hubungi Supir
+</a>
+
+<button class="close-popup" id="closeAmbulance">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<audio id="banamaSong">
+<source src="assets/sound/Banama_Desa_Tercinta.mp3" type="audio/mpeg">
+</audio>
+
+<script src="js/settings.js"></script>
+<script src="js/app-loader.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/server.js"></script>
+<script src="js/berita.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/cuaca.js"></script>
+
+</body>
+</html>
