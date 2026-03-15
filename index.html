@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
- 
+
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,6 +12,7 @@
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/ambulance.css">
+
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -20,51 +22,45 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <!-- SMART SKY -->
 <div id="sky">
-  <div id="weather-widget">
+
+<div id="weather-widget">
 <div id="weather-text">Memuat...</div>
 <div id="temperature">--°C</div>
-
 </div>
 
-  <img src="assets/img/sun.webp" id="sun">
-  <img src="assets/img/moon.webp" id="moon">
+<img src="assets/img/sun.webp" id="sun">
+<img src="assets/img/moon.webp" id="moon">
 
-  <div class="cloud cloud-back"></div>
-  <div class="cloud cloud-mid"></div>
-  <div class="cloud cloud-front"></div>
+<div class="cloud cloud-back"></div>
+<div class="cloud cloud-mid"></div>
+<div class="cloud cloud-front"></div>
 
-  <div id="rain"></div>
+<div id="rain"></div>
 <div id="lightning"></div>
-  <div id="stars"></div>
-  
+<div id="stars"></div>
 
 </div>
 
 <!-- HEADER -->
 
 <header class="hero fade-up">
-  
-<img src="assets/img/logo.png" class="logo">
 
-<h1>DESA BANAMA</h1>
+<a href="#" id="logoAdmin">
+<img src="assets/img/logo.png" id="logo" width="150">
+</a>
 
-<p>
-Tabe Salamat Lingu Nalatai<br>
-Salam Selamat Kedamaian Bagi Kita Semua
-</p>
+<h1 id="desaTitle"></h1>
+
+<p id="desaSlogan"></p>
 
 <div id="jam-wita"></div>
 
 <div class="server-status">
-
-<span id="server-lamp"></span>
-<span id="server-text">Mengecek Server...</span>
-
+    <span id="server-lamp" class="server-offline"></span>
+    <span id="server-text">Cek server...</span>
 </div>
 
 </header>
-
-
 
 <!-- DASHBOARD -->
 
@@ -74,52 +70,8 @@ Salam Selamat Kedamaian Bagi Kita Semua
 Layanan Desa
 </h2>
 
-<div class="app-grid">
+<div class="app-grid" id="appGrid"></div>
 
-<a href="https://banama.my.id" class="app-card fade-left">
-<img src="assets/img/icon-website.webp">
-<span>Website Desa</span>
-</a>
-
-<a href="https://www.humabetang.id/" class="app-card fade-right">
-
-<img src="assets/img/icon-admin.webp">
-
-<span>Humabetang</span>
-
-</a>
-
-<a href="#peta" class="app-card fade-left">
-<img src="assets/img/icon-peta.webp">
-<span>Peta Desa</span>
-</a>
-
-<a href="#cuaca" class="app-card fade-right">
-<img src="assets/img/icon-cuaca.webp">
-<span>Cuaca</span>
-</a>
-
-<a href="#cctv" class="app-card fade-left">
-<img src="assets/img/icon-cctv.webp">
-<span>CCTV</span>
-</a>
-
-<a href="#ambulance" class="app-card fade-right">
-<img src="assets/img/icon-ambulance.webp">
-<span>Ambulans</span>
-</a>
-
-<a href="#berita" class="app-card fade-left">
-<img src="assets/img/icon-berita.webp">
-<span>Berita</span>
-</a>
-
-<a href="https://wa.me/6285248555550" class="app-card fade-right">
-<img src="assets/img/icon-kontak.webp">
-<span>Kontak</span>
-</a>
-
-</div>
 
 <div id="login-menu" class="login-menu">
 
@@ -139,26 +91,14 @@ Login Warga
 
 <section class="ambulance-section fade-up">
 
-<div id="ambulance">
-<img src="assets/img/ambulance.webp">
-</div>
-
 <div id="ambulance-banner">
 
-<h3>Layanan Ambulans Desa</h3>
-
-<p>
-Berkat doa orang sakampungan kawa tarus.<br>
-Mun kada auran.
-</p>
+    <h3 id="ambulanceTitle"></h3>
+    <p id="ambulanceText"></p>
 
 <button id="call-ambulance">
 Hubungi Supir Ambulans
 </button>
-
-<a href="https://wa.me/6285248555550" id="wa-btn" style="display:none;">
-Buka WhatsApp
-</a>
 
 <audio id="ambulanceSound">
 <source src="assets/sound/siren.mp3" type="audio/mpeg">
@@ -172,11 +112,7 @@ Buka WhatsApp
 
 <section class="banner-slider">
 
-<div class="slides">
-<img src="assets/img/banner1.jpg" class="active">
-<img src="assets/img/banner2.jpg">
-<img src="assets/img/banner3.jpg">
-</div>
+    <div class="slides" id="bannerSlides"></div>
 
 <div class="slider-arrow left">&#10094;</div>
 <div class="slider-arrow right">&#10095;</div>
@@ -184,8 +120,6 @@ Buka WhatsApp
 <div class="dots"></div>
 
 </section>
-
-
 
 <!-- BERITA -->
 
@@ -199,8 +133,6 @@ Berita Desa
 
 </section>
 
-
-
 <!-- CCTV -->
 
 <section id="cctv" class="fade-up">
@@ -209,21 +141,9 @@ Berita Desa
 CCTV Halaman Kantor Desa
 </h2>
 
-<div style="max-width:900px;margin:auto;border-radius:10px;overflow:hidden">
-
-<iframe
-src="https://cctv.banama.my.id/stream.html?src=cam1&mode=mse"
-width="100%"
-height="500"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
+<img src="assets/img/cctv-placeholder.jpg">
 
 </section>
-
-
 
 <!-- PETA -->
 
@@ -239,30 +159,79 @@ src="https://www.google.com/maps?q=Banama,Kapuas,Kalimantan%20Tengah&output=embe
 
 </section>
 
-
-
-
-
 <footer class="fade-up">
 
-<p>
-Adil Ka' Talino<br>
-Bacuramin Ka' Saruga<br>
-Basengat Ka' Jubata
-</p>
-
-<p>
-© 2026 Pemerintah Desa Banama
-</p>
+    <p id="footerText"></p>
+    <p id="copyright"></p>
 
 </footer>
 
+<div id="adminPopup" class="popup-admin">
 
+<div class="popup-box">
+
+<h3>⚠ Server Tidak Aktif</h3>
+
+<p>
+Server Sistem Informasi Desa saat ini tidak aktif.<br>
+Jika sangat mendesak silakan hubungi admin desa.
+</p>
+
+<div class="popup-buttons">
+
+<a href="https://wa.me/6285248555550" class="wa-admin">
+<i class="fa-brands fa-whatsapp"></i> Hubungi Admin
+</a>
+
+<button class="close-popup" id="closePopup">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="ambulancePopup" class="popup-admin">
+
+<div class="popup-box">
+
+<h3>🚑 Layanan Ambulans Desa</h3>
+
+<p>
+Jika membutuhkan ambulans desa,<br>
+silakan hubungi supir ambulans melalui WhatsApp.
+</p>
+
+<div class="popup-buttons">
+
+<a href="https://wa.me/6285248555550" class="wa-admin">
+<i class="fa-brands fa-whatsapp"></i> Hubungi Supir
+</a>
+
+<button class="close-popup" id="closeAmbulance">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<audio id="banamaSong">
+<source src="assets/sound/Banama_Desa_Tercinta.mp3" type="audio/mpeg">
+</audio>
+
+<script src="js/settings.js"></script>
+<script src="js/app-loader.js"></script>
 
 <script src="js/main.js"></script>
 <script src="js/server.js"></script>
 <script src="js/berita.js"></script>
 <script src="js/scroll.js"></script>
 <script src="js/cuaca.js"></script>
+
 </body>
 </html>

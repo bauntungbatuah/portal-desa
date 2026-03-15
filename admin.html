@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Portal Desa</title>
+
+<link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body>
+    <button id="menuToggle" class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+        </button>
+<div class="sidebar">
+
+    <a href="../index.html" class="portal-link">
+        <h2><i class="fa-solid fa-house"></i> Portal Desa</h2>
+        </a>
+
+        <a href="#dashboard">
+            <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
+            
+            <a href="#editCard">
+            <i class="fa-solid fa-table-cells"></i> Edit Card
+            </a>
+            
+            <a href="#banner">
+            <i class="fa-solid fa-image"></i> Banner
+            </a>
+            
+            <a href="#preview">
+            <i class="fa-solid fa-eye"></i> Preview
+            </a>
+
+</div>
+
+<div class="main">
+
+<!-- HEADER -->
+
+<div class="header" id="dashboard">
+
+<h1>Control Panel Portal Desa</h1>
+
+</div>
+
+<!-- LOGO -->
+
+<div class="card">
+
+    <h3>Logo Desa</h3>
+
+    <img id="logoPreview" class="logo-preview">
+    
+    <br>
+    
+    <input type="file" accept="image/*" onchange="uploadLogo(event)">
+    
+    <br><br>
+    
+    Link Logo
+    <input type="text"
+    value=""
+    onchange="APP_CONFIG.logoLink=this.value">
+
+</div>
+<div class="card" id="portalSettings">
+
+    <h3>Pengaturan Portal Desa</h3>
+    
+    Nama Desa
+    <input type="text"
+    id="setDesaTitle"
+    onchange="APP_CONFIG.desaTitle=this.value">
+    
+    Slogan Baris 1
+    <input type="text"
+    id="setSlogan1"
+    onchange="APP_CONFIG.slogan1=this.value">
+    
+    Slogan Baris 2
+    <input type="text"
+    id="setSlogan2"
+    onchange="APP_CONFIG.slogan2=this.value">
+    
+    Judul Ambulans
+    <input type="text"
+    id="setAmbulanceTitle"
+    onchange="APP_CONFIG.ambulanceTitle=this.value">
+    
+    Teks Ambulans
+    <textarea
+    id="setAmbulanceText"
+    onchange="APP_CONFIG.ambulanceText=this.value"></textarea>
+    
+    Footer Baris 1
+    <input type="text"
+    id="setFooter1"
+    onchange="APP_CONFIG.footer1=this.value">
+    
+    Footer Baris 2
+    <input type="text"
+    id="setFooter2"
+    onchange="APP_CONFIG.footer2=this.value">
+    
+    Footer Baris 3
+    <input type="text"
+    id="setFooter3"
+    onchange="APP_CONFIG.footer3=this.value">
+    
+    Nomor WhatsApp
+    <input type="text"
+    id="setWA"
+    onchange="APP_CONFIG.whatsappNumber=this.value">
+    
+    Pesan WhatsApp
+    <textarea
+    id="setWAMessage"
+    onchange="APP_CONFIG.whatsappMessage=this.value"></textarea>
+    
+    </div>
+<!-- CARD EDITOR -->
+
+<div class="card" id="editCard">
+
+<h3>Daftar Card</h3>
+
+<div id="cardEditor"></div>
+
+<button onclick="addCard()">
+<i class="fa-solid fa-plus"></i> Tambah Card
+</button>
+
+</div>
+
+<!-- BANNER -->
+
+<div class="card" id="banner">
+
+<h3>Banner Slider</h3>
+
+<div id="bannerEditor"></div>
+
+<button onclick="addBanner()">Tambah Banner</button>
+
+</div>
+
+<button class="save-btn" onclick="saveConfig()">Simpan Semua</button>
+
+<!-- PREVIEW -->
+
+<div id="preview">
+
+<h3>Preview Homepage</h3>
+
+<button onclick="togglePreview()">
+Lihat Preview
+</button>
+
+<div id="previewContainer" class="preview-container" style="display:none;">
+
+<iframe id="previewFrame" src="../index.html"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="../js/settings.js"></script>
+<script src="../js/app-loader.js"></script>
+<script src="../js/admin-panel.js"></script>
+
+
+</body>
+
+</html>
